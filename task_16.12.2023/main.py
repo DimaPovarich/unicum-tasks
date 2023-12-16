@@ -53,7 +53,7 @@ while True:
         my_S_calculator = Figure_Calculator
         while True:
             try:
-                change1 = int(input('выберите действие(1 - плюс, 2 - минус, 3 - умножить, 4 - делить): '))
+                change1 = int(input('выберите действие(1 - площадь квадрата, 2 - площадь круга, 3 - площадь треугольника): '))
                 break
             except ValueError:
                 print('введите число!!')
@@ -73,3 +73,4 @@ while True:
             break
         else:
             continue
+print('Пока!')
