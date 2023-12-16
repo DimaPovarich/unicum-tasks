@@ -21,25 +21,55 @@ class Figure_Calculator:
         return 0.5*h*num
     def sircle(self, r):
         return r**2*3.14
-
-change = int(input('выберете калькулятор(1 - обычный, 2 - для расчета площади фигур): '))
-if change == 1:
-    my_calculator = Calculator(int(input('first number: ')), int(input('second number: ')))
-    change1 = int(input('выберите действие(1 - плюс, 2 - минус, 3 - умножить, 4 - делить): '))
-    if change1 == 1:
-        my_calculator.plus(my_calculator.num1, my_calculator.num2)
-    elif change1 == 2:
-        my_calculator.minus(my_calculator.num1, my_calculator.num2)
-    elif change1 == 3:
-        my_calculator.multiplie(my_calculator.num1, my_calculator.num2)
+while True:
+    change = int(input('выберете калькулятор(1 - обычный, 2 - для расчета площади фигур): '))
+    if change == 1:
+        my_calculator = Calculator(int(input('first number: ')), int(input('second number: ')))
+        while True:
+            try:
+                change1 = int(input('выберите действие(1 - плюс, 2 - минус, 3 - умножить, 4 - делить): '))
+                break
+            except ValueError:
+                print('введите число!!')
+        if change1 == 1:
+            my_calculator.plus(my_calculator.num1, my_calculator.num2)
+        elif change1 == 2:
+            my_calculator.minus(my_calculator.num1, my_calculator.num2)
+        elif change1 == 3:
+            my_calculator.multiplie(my_calculator.num1, my_calculator.num2)
+        else:
+            my_calculator.division(my_calculator.num1, my_calculator.num2)
+        while True:
+            try:
+                change2 = int(input('работать дальше или выйти?(1 - выйти, 2 - работать дальше): '))
+                break
+            except ValueError:
+                print('введите число!!')
+        if change2 == 1:
+            break
+        else:
+            continue
     else:
-        my_calculator.division(my_calculator.num1, my_calculator.num2)
-else:
-    my_S_calculator = Figure_Calculator
-    change1 = int(input('выберите действие(1 - площадь квадрата, 2 - площадь круга, 3 - площадь треугольника): '))
-    if change1 == 1:
-        print(my_S_calculator.square(self=my_S_calculator, num=float(input('введите сторону квадрата: '))))
-    elif change1 == 2:
-        print(my_S_calculator.sircle(self=my_S_calculator, r=float(input('введите радиус круга: '))))
-    else:
-        print(my_S_calculator.triangle(self=my_S_calculator, h=float(input('введите высоту треугольника от основания: ')),num=int(input('введите длину основания треугольника: '))))
+        my_S_calculator = Figure_Calculator
+        while True:
+            try:
+                change1 = int(input('выберите действие(1 - плюс, 2 - минус, 3 - умножить, 4 - делить): '))
+                break
+            except ValueError:
+                print('введите число!!')
+        if change1 == 1:
+            print(my_S_calculator.square(self=my_S_calculator, num=float(input('введите сторону квадрата: '))))
+        elif change1 == 2:
+            print(my_S_calculator.sircle(self=my_S_calculator, r=float(input('введите радиус круга: '))))
+        else:
+            print(my_S_calculator.triangle(self=my_S_calculator, h=float(input('введите высоту треугольника от основания: ')),num=int(input('введите длину основания треугольника: '))))
+        while True:
+            try:
+                change2 = int(input('работать дальше или выйти?(1 - выйти, 2 - работать дальше): '))
+                break
+            except ValueError:
+                print('введите число!!')
+        if change2 == 1:
+            break
+        else:
+            continue
